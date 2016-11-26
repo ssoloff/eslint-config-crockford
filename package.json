@@ -1,0 +1,30 @@
+{
+  "name": "eslint-config-crockford",
+  "version": "0.1.0",
+  "description": "ESLint shareable config for Crockford style",
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ssoloff/eslint-config-crockford",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssoloff/eslint-config-crockford.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ssoloff/eslint-config-crockford/issues"
+  },
+  "author": {
+    "name": "Steven Soloff",
+    "email": "steven.soloff@gmail.com"
+  },
+  "main": "src/index.js",
+  "devDependencies": {
+    "jasmine": "~2.5.2",
+    "jasmine-expect": "~3.0.1"
+  },
+  "scripts": {
+    "test": "jasmine"
+  }
+}
