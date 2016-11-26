@@ -1,6 +1,7 @@
 {
   "helpers": [
-    "../node_modules/jasmine-expect/index.js"
+    "../node_modules/jasmine-expect/index.js",
+    "helpers/**/*.js"
   ],
   "random": false,
   "spec_dir": "spec",
