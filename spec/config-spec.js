@@ -13,6 +13,6 @@ const config = require('../')
 describe('The configuration', () => {
   it('should contain the required properties', () => {
     expect(config).toBeNonEmptyObject()
-    expect(config.rules).toBeNonEmptyObject()
+    expect(config).toHaveNonEmptyObject('rules')
   })
 })
