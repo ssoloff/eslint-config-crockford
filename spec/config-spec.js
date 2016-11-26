@@ -6,13 +6,13 @@
  * This software comes with ABSOLUTELY NO WARRANTY.
  */
 
-'use strict';
+'use strict'
 
-const config = require('../');
+const config = require('../')
 
 describe('The configuration', () => {
   it('should contain the required properties', () => {
-    expect(config).toBeNonEmptyObject();
-    expect(config.rules).toBeNonEmptyObject();
-  });
-});
+    expect(config).toBeNonEmptyObject()
+    expect(config.rules).toBeNonEmptyObject()
+  })
+})

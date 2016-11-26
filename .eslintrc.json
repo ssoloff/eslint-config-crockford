@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "node",
+    "promise",
+    "standard"
+  ],
+  "extends": [
+    "standard",
+    "plugin:node/recommended"
+  ]
+}

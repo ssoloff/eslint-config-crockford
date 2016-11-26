@@ -6,6 +6,6 @@
  * This software comes with ABSOLUTELY NO WARRANTY.
  */
 
-'use strict';
+'use strict'
 
-module.exports = require('./eslintrc.json');
+module.exports = require('./eslintrc.json')

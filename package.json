@@ -19,12 +19,24 @@
     "name": "Steven Soloff",
     "email": "steven.soloff@gmail.com"
   },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
   "main": "src/index.js",
+  "peerDependencies": {
+    "eslint": ">= 3.11.0"
+  },
   "devDependencies": {
+    "eslint": "~3.11.0",
+    "eslint-config-standard": "~6.2.1",
+    "eslint-plugin-node": "~3.0.4",
+    "eslint-plugin-promise": "~3.4.0",
+    "eslint-plugin-standard": "~2.0.1",
     "jasmine": "~2.5.2",
     "jasmine-expect": "~3.0.1"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "jasmine"
   }
 }
