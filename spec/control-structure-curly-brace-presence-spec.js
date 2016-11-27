@@ -9,16 +9,13 @@
 'use strict'
 
 const eslint = require('eslint')
+const source = require('./support/test-util').source
 
 describe('Control structure curly brace presence', () => {
   let engine
 
   function linting (text) {
     return engine.executeOnText(text)
-  }
-
-  function source (lines) {
-    return lines.join('\n') + '\n'
   }
 
   beforeEach(() => {
