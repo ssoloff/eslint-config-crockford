@@ -10,7 +10,7 @@
 
 const eslint = require('eslint')
 
-describe('Sylistic issues rule', () => {
+describe('File structure', () => {
   let engine
 
   function linting (text) {
@@ -24,15 +24,13 @@ describe('Sylistic issues rule', () => {
     })
   })
 
-  describe('eol-last', () => {
-    it('should report an error when the text has a trailing newline', () => {
-      const text = 'var foo = 1;'
-      expect(linting(text)).toReportErrorForRule('eol-last')
-    })
+  it('should raise a violation when the file does not have a trailing newline', () => {
+    const text = 'var foo = 1;'
+    expect(linting(text)).toReportErrorForRule('eol-last')
+  })
 
-    it('should not report a violation when the text does not have a trailing newline', () => {
-      const text = 'var foo = 1;\n'
-      expect(linting(text)).toNotReportViolationForAnyRule()
-    })
+  it('should not raise a violation when the file has a trailing newline', () => {
+    const text = 'var foo = 1;\n'
+    expect(linting(text)).toNotReportViolationForAnyRule()
   })
 })
