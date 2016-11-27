@@ -8,6 +8,15 @@
 
 'use strict'
 
+function checkForFatalErrors (results) {
+  const fatal = results.results.some((result) => {
+    return result.messages.some((message) => message.fatal === true)
+  })
+  if (fatal) {
+    throw new Error(`Encountered fatal error in results ${JSON.stringify(results)}.`)
+  }
+}
+
 function containsRuleViolationWithSeverity (results, ruleId, severity) {
   return results.results.some((result) => {
     return result.messages.some((message) => message.ruleId === ruleId && message.severity === severity)
@@ -29,6 +38,7 @@ beforeEach(() => {
     toNotReportViolationForRule () {
       return {
         compare (results, ruleId) {
+          checkForFatalErrors(results)
           return {
             message: formatFailureMessage(results, ruleId, 'no violation'),
             pass: doesNotContainRuleViolation(results, ruleId)
@@ -40,6 +50,7 @@ beforeEach(() => {
     toReportErrorForRule () {
       return {
         compare (results, ruleId) {
+          checkForFatalErrors(results)
           return {
             message: formatFailureMessage(results, ruleId, 'an error'),
             pass: containsRuleViolationWithSeverity(results, ruleId, 2)
@@ -51,6 +62,7 @@ beforeEach(() => {
     toReportWarningForRule () {
       return {
         compare (results, ruleId) {
+          checkForFatalErrors(results)
           return {
             message: formatFailureMessage(results, ruleId, 'a warning'),
             pass: containsRuleViolationWithSeverity(results, ruleId, 1)
