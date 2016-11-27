@@ -8,7 +8,19 @@
 
 'use strict'
 
+const eslint = require('eslint')
+
 module.exports = {
+  createEngine () {
+    return new eslint.CLIEngine({
+      configFile: 'src/eslintrc.json',
+      parserOptions: {
+        ecmaVersion: 8
+      },
+      useEslintrc: false
+    })
+  },
+
   source (lines) {
     return lines.join('\n') + '\n'
   }

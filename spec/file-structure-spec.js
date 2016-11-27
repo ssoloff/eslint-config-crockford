@@ -8,7 +8,7 @@
 
 'use strict'
 
-const eslint = require('eslint')
+const createEngine = require('./support/test-util').createEngine
 
 describe('File structure', () => {
   let engine
@@ -18,10 +18,7 @@ describe('File structure', () => {
   }
 
   beforeEach(() => {
-    engine = new eslint.CLIEngine({
-      configFile: 'src/eslintrc.json',
-      useEslintrc: false
-    })
+    engine = createEngine()
   })
 
   it('should raise a violation when the file does not have a trailing newline', () => {

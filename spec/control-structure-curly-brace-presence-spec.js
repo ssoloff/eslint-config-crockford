@@ -8,7 +8,7 @@
 
 'use strict'
 
-const eslint = require('eslint')
+const createEngine = require('./support/test-util').createEngine
 const source = require('./support/test-util').source
 
 describe('Control structure curly brace presence', () => {
@@ -19,13 +19,7 @@ describe('Control structure curly brace presence', () => {
   }
 
   beforeEach(() => {
-    engine = new eslint.CLIEngine({
-      configFile: 'src/eslintrc.json',
-      parserOptions: {
-        ecmaVersion: 8
-      },
-      useEslintrc: false
-    })
+    engine = createEngine()
   })
 
   describe('for an if statement', () => {
