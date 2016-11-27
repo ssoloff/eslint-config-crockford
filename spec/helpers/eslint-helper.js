@@ -13,7 +13,7 @@ function checkForFatalErrors (results) {
     return result.messages.some((message) => message.fatal === true)
   })
   if (fatal) {
-    throw new Error(`Encountered fatal error in results ${JSON.stringify(results)}.`)
+    throw new Error(`Encountered fatal error in results ${formatResults(results)}.`)
   }
 }
 
@@ -23,25 +23,28 @@ function containsRuleViolationWithSeverity (results, ruleId, severity) {
   })
 }
 
-function doesNotContainRuleViolation (results, ruleId) {
-  return results.results.every((result) => {
-    return result.messages.every((message) => message.ruleId !== ruleId)
-  })
+function doesNotContainAnyRuleViolation (results) {
+  return results.results.every((result) => result.messages.length === 0)
 }
 
-function formatFailureMessage (results, ruleId, condition) {
-  return `Expected ${condition} for rule '${ruleId}' but results were ${JSON.stringify(results)}.`
+function formatFailureMessage (condition, results, ruleId) {
+  const ruleClause = ruleId ? `rule '${ruleId}'` : 'any rule'
+  return `Expected ${condition} for ${ruleClause} but results were ${formatResults(results)}.`
+}
+
+function formatResults (results) {
+  return JSON.stringify(results)
 }
 
 beforeEach(() => {
   jasmine.addMatchers({
-    toNotReportViolationForRule () {
+    toNotReportViolationForAnyRule () {
       return {
-        compare (results, ruleId) {
+        compare (results) {
           checkForFatalErrors(results)
           return {
-            message: formatFailureMessage(results, ruleId, 'no violation'),
-            pass: doesNotContainRuleViolation(results, ruleId)
+            message: formatFailureMessage('no violation', results),
+            pass: doesNotContainAnyRuleViolation(results)
           }
         }
       }
@@ -52,7 +55,7 @@ beforeEach(() => {
         compare (results, ruleId) {
           checkForFatalErrors(results)
           return {
-            message: formatFailureMessage(results, ruleId, 'an error'),
+            message: formatFailureMessage('an error', results, ruleId),
             pass: containsRuleViolationWithSeverity(results, ruleId, 2)
           }
         }
@@ -64,7 +67,7 @@ beforeEach(() => {
         compare (results, ruleId) {
           checkForFatalErrors(results)
           return {
-            message: formatFailureMessage(results, ruleId, 'a warning'),
+            message: formatFailureMessage('a warning', results, ruleId),
             pass: containsRuleViolationWithSeverity(results, ruleId, 1)
           }
         }

@@ -47,7 +47,7 @@ describe('Best practices rule', () => {
           '  2;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -70,7 +70,7 @@ describe('Best practices rule', () => {
           '  3;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -89,7 +89,7 @@ describe('Best practices rule', () => {
           '  1;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -110,7 +110,7 @@ describe('Best practices rule', () => {
           '  1;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -131,7 +131,7 @@ describe('Best practices rule', () => {
           '  1;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -150,7 +150,7 @@ describe('Best practices rule', () => {
           '  2;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -170,7 +170,7 @@ describe('Best practices rule', () => {
           '  2;',
           '} while (1);'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -182,7 +182,7 @@ describe('Best practices rule', () => {
           '  2;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
 
       it('should not report a violation when curly braces are present', () => {
@@ -193,7 +193,7 @@ describe('Best practices rule', () => {
           '}',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
 
@@ -205,7 +205,7 @@ describe('Best practices rule', () => {
           '  2;',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
 
       it('should not report a violation when curly braces are present', () => {
@@ -216,7 +216,7 @@ describe('Best practices rule', () => {
           '}',
           '}'
         ])
-        expect(linting(text)).toNotReportViolationForRule('curly')
+        expect(linting(text)).toNotReportViolationForAnyRule()
       })
     })
   })

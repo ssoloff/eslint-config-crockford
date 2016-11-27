@@ -32,7 +32,7 @@ describe('Sylistic issues rule', () => {
 
     it('should not report a violation when the text does not have a trailing newline', () => {
       const text = 'var foo = 1;\n'
-      expect(linting(text)).toNotReportViolationForRule('eol-last')
+      expect(linting(text)).toNotReportViolationForAnyRule()
     })
   })
 })
