@@ -44,7 +44,7 @@
     "build": "npm run lint && npm run test",
     "lint": "npm run lint:js && npm run lint:json && npm run lint:package",
     "lint:js": "eslint .",
-    "lint:json": "node scripts/lint-json.js",
+    "lint:json": "node build/lint-json.js",
     "lint:package": "pjv -rw",
     "test": "jasmine"
   }
