@@ -23,7 +23,7 @@
   "engines": {
     "node": ">= 4.0.0"
   },
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "dependencies": {},
   "peerDependencies": {
     "eslint": ">= 3.11.0"

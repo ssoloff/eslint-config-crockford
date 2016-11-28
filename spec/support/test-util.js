@@ -13,7 +13,7 @@ const eslint = require('eslint')
 module.exports = {
   createEngine () {
     return new eslint.CLIEngine({
-      configFile: 'src/eslintrc.json',
+      configFile: 'lib/eslintrc.json',
       parserOptions: {
         ecmaVersion: 8
       },
