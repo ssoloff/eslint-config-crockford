@@ -24,8 +24,7 @@
     "node": ">= 4.0.0"
   },
   "main": "src/index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "eslint": ">= 3.11.0"
   },
@@ -35,14 +34,17 @@
     "eslint-plugin-node": "~3.0.4",
     "eslint-plugin-promise": "~3.4.0",
     "eslint-plugin-standard": "~2.0.1",
+    "glob": "~7.1.1",
     "jasmine": "~2.5.2",
     "jasmine-expect": "~3.0.1",
+    "jsonlint": "~1.6.2",
     "package-json-validator": "~0.6.1"
   },
   "scripts": {
     "build": "npm run lint && npm run test",
-    "lint": "npm run lint:js && npm run lint:package",
+    "lint": "npm run lint:js && npm run lint:json && npm run lint:package",
     "lint:js": "eslint .",
+    "lint:json": "node scripts/lint-json.js",
     "lint:package": "pjv -rw",
     "test": "jasmine"
   }
