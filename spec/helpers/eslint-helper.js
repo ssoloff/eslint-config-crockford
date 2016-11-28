@@ -8,6 +8,8 @@
 
 'use strict'
 
+const createEngine = require('../support/test-util').createEngine
+
 function checkForFatalErrors (results) {
   const fatal = results.results.some((result) => {
     return result.messages.some((message) => message.fatal === true)
@@ -36,12 +38,19 @@ function formatResults (results) {
   return JSON.stringify(results)
 }
 
+function lint (text) {
+  const engine = createEngine()
+  const results = engine.executeOnText(text)
+  checkForFatalErrors(results)
+  return results
+}
+
 beforeEach(() => {
   jasmine.addMatchers({
-    toNotReportViolationForAnyRule () {
+    toNotRaiseViolation () {
       return {
-        compare (results) {
-          checkForFatalErrors(results)
+        compare (text) {
+          const results = lint(text)
           return {
             message: formatFailureMessage('no violation', results),
             pass: doesNotContainAnyRuleViolation(results)
@@ -50,10 +59,10 @@ beforeEach(() => {
       }
     },
 
-    toReportErrorForRule () {
+    toRaiseErrorForRule () {
       return {
-        compare (results, ruleId) {
-          checkForFatalErrors(results)
+        compare (text, ruleId) {
+          const results = lint(text)
           return {
             message: formatFailureMessage('an error', results, ruleId),
             pass: containsRuleViolationWithSeverity(results, ruleId, 2)
@@ -62,10 +71,10 @@ beforeEach(() => {
       }
     },
 
-    toReportWarningForRule () {
+    toRaiseWarningForRule () {
       return {
-        compare (results, ruleId) {
-          checkForFatalErrors(results)
+        compare (text, ruleId) {
+          const results = lint(text)
           return {
             message: formatFailureMessage('a warning', results, ruleId),
             pass: containsRuleViolationWithSeverity(results, ruleId, 1)

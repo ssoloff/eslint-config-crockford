@@ -8,27 +8,16 @@
 
 'use strict'
 
-const createEngine = require('./support/test-util').createEngine
 const source = require('./support/test-util').source
 
 describe('Control structure curly brace presence', () => {
-  let engine
-
-  function linting (text) {
-    return engine.executeOnText(text)
-  }
-
-  beforeEach(() => {
-    engine = createEngine()
-  })
-
   describe('for an if statement', () => {
     it('should raise a violation when curly braces are absent', () => {
       const text = source([
         'if (1)',
         '  2;'
       ])
-      expect(linting(text)).toReportErrorForRule('curly')
+      expect(text).toRaiseErrorForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -37,7 +26,7 @@ describe('Control structure curly brace presence', () => {
         '  2;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -49,7 +38,7 @@ describe('Control structure curly brace presence', () => {
         '} else',
         '  3;'
       ])
-      expect(linting(text)).toReportErrorForRule('curly')
+      expect(text).toRaiseErrorForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -60,7 +49,7 @@ describe('Control structure curly brace presence', () => {
         '  3;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -70,7 +59,7 @@ describe('Control structure curly brace presence', () => {
         'for (;;)',
         '  1;'
       ])
-      expect(linting(text)).toReportErrorForRule('curly')
+      expect(text).toRaiseErrorForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -79,7 +68,7 @@ describe('Control structure curly brace presence', () => {
         '  1;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -90,7 +79,7 @@ describe('Control structure curly brace presence', () => {
         'for (p in {})',
         '  1;'
       ])
-      expect(linting(text)).toReportErrorForRule('curly')
+      expect(text).toRaiseErrorForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -100,7 +89,7 @@ describe('Control structure curly brace presence', () => {
         '  1;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -111,7 +100,7 @@ describe('Control structure curly brace presence', () => {
         'for (p of [])',
         '  1;'
       ])
-      expect(linting(text)).toReportErrorForRule('curly')
+      expect(text).toRaiseErrorForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -121,7 +110,7 @@ describe('Control structure curly brace presence', () => {
         '  1;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -131,7 +120,7 @@ describe('Control structure curly brace presence', () => {
         'while (1)',
         '  2;'
       ])
-      expect(linting(text)).toReportErrorForRule('curly')
+      expect(text).toRaiseErrorForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -140,7 +129,7 @@ describe('Control structure curly brace presence', () => {
         '  2;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -151,7 +140,7 @@ describe('Control structure curly brace presence', () => {
         '  2;',
         'while (1);'
       ])
-      expect(linting(text)).toReportErrorForRule('curly')
+      expect(text).toRaiseErrorForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -160,7 +149,7 @@ describe('Control structure curly brace presence', () => {
         '  2;',
         '} while (1);'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -172,7 +161,7 @@ describe('Control structure curly brace presence', () => {
         '  2;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -183,7 +172,7 @@ describe('Control structure curly brace presence', () => {
         '}',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 
@@ -195,7 +184,7 @@ describe('Control structure curly brace presence', () => {
         '  2;',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -206,7 +195,7 @@ describe('Control structure curly brace presence', () => {
         '}',
         '}'
       ])
-      expect(linting(text)).toNotReportViolationForAnyRule()
+      expect(text).toNotRaiseViolation()
     })
   })
 })
