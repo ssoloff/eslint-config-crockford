@@ -10,25 +10,19 @@
 
 const createEngine = require('../support/test-util').createEngine
 
-function containsRuleViolationWithSeverity (results, ruleId, severity) {
-  return (results.results.length > 0) && results.results.every((result) => {
-    return (result.messages.length > 0) && result.messages.every((message) => {
-      return (message.ruleId === ruleId) && (message.severity === severity)
-    })
-  })
+function containsNoViolations (results) {
+  return results.results.every((result) => result.messages.length === 0)
 }
 
-function doesNotContainAnyRuleViolation (results) {
-  return results.results.every((result) => result.messages.length === 0)
+function containsViolationsOnlyForRule (results, ruleId) {
+  return (results.results.length > 0) && results.results.every((result) => {
+    return (result.messages.length > 0) && result.messages.every((message) => message.ruleId === ruleId)
+  })
 }
 
 function formatFailureMessage (condition, results, ruleId) {
   const ruleClause = ruleId ? `rule '${ruleId}'` : 'any rule'
-  return `Expected ${condition} for ${ruleClause} but results were ${formatResults(results)}.`
-}
-
-function formatResults (results) {
-  return JSON.stringify(results)
+  return `Expected ${condition} for ${ruleClause} but results were ${JSON.stringify(results)}.`
 }
 
 function lint (text) {
@@ -44,31 +38,19 @@ beforeEach(() => {
           const results = lint(text)
           return {
             message: formatFailureMessage('no violation', results),
-            pass: doesNotContainAnyRuleViolation(results)
+            pass: containsNoViolations(results)
           }
         }
       }
     },
 
-    toRaiseErrorForRule () {
+    toRaiseViolationForRule () {
       return {
         compare (text, ruleId) {
           const results = lint(text)
           return {
-            message: formatFailureMessage('an error', results, ruleId),
-            pass: containsRuleViolationWithSeverity(results, ruleId, 2)
-          }
-        }
-      }
-    },
-
-    toRaiseWarningForRule () {
-      return {
-        compare (text, ruleId) {
-          const results = lint(text)
-          return {
-            message: formatFailureMessage('a warning', results, ruleId),
-            pass: containsRuleViolationWithSeverity(results, ruleId, 1)
+            message: formatFailureMessage('a violation', results, ruleId),
+            pass: containsViolationsOnlyForRule(results, ruleId)
           }
         }
       }

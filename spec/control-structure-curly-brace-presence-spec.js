@@ -17,7 +17,7 @@ describe('Control structure curly brace presence', () => {
         'if (1)',
         '    2;'
       ])
-      expect(text).toRaiseErrorForRule('curly')
+      expect(text).toRaiseViolationForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -38,7 +38,7 @@ describe('Control structure curly brace presence', () => {
         '} else',
         '    3;'
       ])
-      expect(text).toRaiseErrorForRule('curly')
+      expect(text).toRaiseViolationForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -59,7 +59,7 @@ describe('Control structure curly brace presence', () => {
         'for (;;)',
         '    1;'
       ])
-      expect(text).toRaiseErrorForRule('curly')
+      expect(text).toRaiseViolationForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -79,7 +79,7 @@ describe('Control structure curly brace presence', () => {
         'for (p in {})',
         '    1;'
       ])
-      expect(text).toRaiseErrorForRule('curly')
+      expect(text).toRaiseViolationForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -100,7 +100,7 @@ describe('Control structure curly brace presence', () => {
         'for (p of [])',
         '    1;'
       ])
-      expect(text).toRaiseErrorForRule('curly')
+      expect(text).toRaiseViolationForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -120,7 +120,7 @@ describe('Control structure curly brace presence', () => {
         'while (1)',
         '    2;'
       ])
-      expect(text).toRaiseErrorForRule('curly')
+      expect(text).toRaiseViolationForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {
@@ -140,7 +140,7 @@ describe('Control structure curly brace presence', () => {
         '    2;',
         'while (1);'
       ])
-      expect(text).toRaiseErrorForRule('curly')
+      expect(text).toRaiseViolationForRule('curly')
     })
 
     it('should not raise a violation when curly braces are present', () => {

@@ -13,7 +13,7 @@ const source = require('./support/test-util').source
 describe('Indentation', () => {
   it('should raise a violation when both spaces and tabs are used for indentation', () => {
     const text = source(['\t    var foo = 1;'])
-    expect(text).toRaiseErrorForRule('no-mixed-spaces-and-tabs')
+    expect(text).toRaiseViolationForRule('no-mixed-spaces-and-tabs')
   })
 
   it('should not raise a violation only spaces are used for indentation', () => {
@@ -27,7 +27,7 @@ describe('Indentation', () => {
       '  2;',
       '}'
     ])
-    expect(text).toRaiseErrorForRule('indent')
+    expect(text).toRaiseViolationForRule('indent')
   })
 
   it('should raise a violation when tabs are used for indenation', () => {
@@ -36,7 +36,7 @@ describe('Indentation', () => {
       '\t2;',
       '}'
     ])
-    expect(text).toRaiseErrorForRule('indent')
+    expect(text).toRaiseViolationForRule('indent')
   })
 
   it('should not raise a violation when 4 spaces are used for indentation', () => {
@@ -55,7 +55,7 @@ describe('Indentation', () => {
       '        3;',
       '}'
     ])
-    expect(text).toRaiseErrorForRule('indent')
+    expect(text).toRaiseViolationForRule('indent')
   })
 
   it('should not raise a violation when a case label is aligned with the switch', () => {
@@ -75,7 +75,7 @@ describe('Indentation', () => {
       '        2;',
       '}'
     ])
-    expect(text).toRaiseErrorForRule('indent')
+    expect(text).toRaiseViolationForRule('indent')
   })
 
   it('should not raise a violation when a default label is aligned with the switch', () => {

@@ -13,7 +13,7 @@ const source = require('./support/test-util').source
 describe('File structure', () => {
   it('should raise a violation when the file does not have a trailing newline', () => {
     const text = 'var foo = 1;'
-    expect(text).toRaiseErrorForRule('eol-last')
+    expect(text).toRaiseViolationForRule('eol-last')
   })
 
   it('should not raise a violation when the file has a trailing newline', () => {
@@ -23,7 +23,7 @@ describe('File structure', () => {
 
   it('should raise a violation when a line has trailing whitespace', () => {
     const text = source(['var foo = 1; '])
-    expect(text).toRaiseErrorForRule('no-trailing-spaces')
+    expect(text).toRaiseViolationForRule('no-trailing-spaces')
   })
 
   it('should not raise a violation when a line does not have trailing whitespace', () => {
