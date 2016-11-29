@@ -23,7 +23,7 @@ describe('Control structure curly brace presence', () => {
     it('should not raise a violation when curly braces are present', () => {
       const text = source([
         'if (1) {',
-        '  2;',
+        '    2;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -44,9 +44,9 @@ describe('Control structure curly brace presence', () => {
     it('should not raise a violation when curly braces are present', () => {
       const text = source([
         'if (1) {',
-        '  2;',
+        '    2;',
         '} else {',
-        '  3;',
+        '    3;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -65,7 +65,7 @@ describe('Control structure curly brace presence', () => {
     it('should not raise a violation when curly braces are present', () => {
       const text = source([
         'for (;;) {',
-        '  1;',
+        '    1;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -86,7 +86,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'var p;',
         'for (p in {}) {',
-        '  1;',
+        '    1;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -107,7 +107,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'var p;',
         'for (p of []) {',
-        '  1;',
+        '    1;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -126,7 +126,7 @@ describe('Control structure curly brace presence', () => {
     it('should not raise a violation when curly braces are present', () => {
       const text = source([
         'while (1) {',
-        '  2;',
+        '    2;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -146,7 +146,7 @@ describe('Control structure curly brace presence', () => {
     it('should not raise a violation when curly braces are present', () => {
       const text = source([
         'do {',
-        '  2;',
+        '    2;',
         '} while (1);'
       ])
       expect(text).toNotRaiseViolation()
@@ -158,7 +158,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'switch (1) {',
         'case 1:',
-        '  2;',
+        '    2;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -168,7 +168,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'switch (1) {',
         'case 1: {',
-        '  2;',
+        '    2;',
         '}',
         '}'
       ])
@@ -181,7 +181,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'switch (1) {',
         'default:',
-        '  2;',
+        '    2;',
         '}'
       ])
       expect(text).toNotRaiseViolation()
@@ -191,7 +191,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'switch (1) {',
         'default: {',
-        '  2;',
+        '    2;',
         '}',
         '}'
       ])

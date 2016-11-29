@@ -2,6 +2,7 @@
   "rules": {
     "curly": 2,
     "eol-last": 2,
+    "indent": [2, 4],
     "no-mixed-spaces-and-tabs": 2,
     "no-trailing-spaces": 2
   }
