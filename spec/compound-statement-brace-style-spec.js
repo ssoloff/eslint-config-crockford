@@ -10,7 +10,7 @@
 
 const source = require('./support/test-util').source
 
-describe('Compound statement', () => {
+describe('Compound statement brace style', () => {
   it('should raise a violation when Stroustrup brace style is used', () => {
     const text = source([
       'if (1) {',

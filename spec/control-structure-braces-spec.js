@@ -10,9 +10,9 @@
 
 const source = require('./support/test-util').source
 
-describe('Control structure curly brace presence', () => {
+describe('Control structure braces', () => {
   describe('for an if statement', () => {
-    it('should raise a violation when curly braces are absent', () => {
+    it('should raise a violation when braces are absent', () => {
       const text = source([
         'if (1)',
         '    2;'
@@ -20,7 +20,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toRaiseViolationForRule('curly')
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'if (1) {',
         '    2;',
@@ -31,7 +31,7 @@ describe('Control structure curly brace presence', () => {
   })
 
   describe('for an else statement', () => {
-    it('should raise a violation when curly braces are absent', () => {
+    it('should raise a violation when braces are absent', () => {
       const text = source([
         'if (1) {',
         '    2;',
@@ -41,7 +41,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toRaiseViolationForRule('curly')
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'if (1) {',
         '    2;',
@@ -54,7 +54,7 @@ describe('Control structure curly brace presence', () => {
   })
 
   describe('for a for statement', () => {
-    it('should raise a violation when curly braces are absent', () => {
+    it('should raise a violation when braces are absent', () => {
       const text = source([
         'for (;;)',
         '    1;'
@@ -62,7 +62,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toRaiseViolationForRule('curly')
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'for (;;) {',
         '    1;',
@@ -73,7 +73,7 @@ describe('Control structure curly brace presence', () => {
   })
 
   describe('for a for...in statement', () => {
-    it('should raise a violation when curly braces are absent', () => {
+    it('should raise a violation when braces are absent', () => {
       const text = source([
         'var p;',
         'for (p in {})',
@@ -82,7 +82,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toRaiseViolationForRule('curly')
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'var p;',
         'for (p in {}) {',
@@ -94,7 +94,7 @@ describe('Control structure curly brace presence', () => {
   })
 
   describe('for a for...of statement', () => {
-    it('should raise a violation when curly braces are absent', () => {
+    it('should raise a violation when braces are absent', () => {
       const text = source([
         'var p;',
         'for (p of [])',
@@ -103,7 +103,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toRaiseViolationForRule('curly')
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'var p;',
         'for (p of []) {',
@@ -115,7 +115,7 @@ describe('Control structure curly brace presence', () => {
   })
 
   describe('for a while statement', () => {
-    it('should raise a violation when curly braces are absent', () => {
+    it('should raise a violation when braces are absent', () => {
       const text = source([
         'while (1)',
         '    2;'
@@ -123,7 +123,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toRaiseViolationForRule('curly')
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'while (1) {',
         '    2;',
@@ -133,8 +133,8 @@ describe('Control structure curly brace presence', () => {
     })
   })
 
-  describe('for a do...while statement', () => {
-    it('should raise a violation when curly braces are absent', () => {
+  describe('for a do statement', () => {
+    it('should raise a violation when braces are absent', () => {
       const text = source([
         'do',
         '    2;',
@@ -143,7 +143,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toRaiseViolationForRule('curly')
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'do {',
         '    2;',
@@ -154,7 +154,7 @@ describe('Control structure curly brace presence', () => {
   })
 
   describe('for a case label', () => {
-    it('should not raise a violation when curly braces are absent', () => {
+    it('should not raise a violation when braces are absent', () => {
       const text = source([
         'switch (1) {',
         'case 1:',
@@ -164,7 +164,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toNotRaiseViolation()
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'switch (1) {',
         'case 1: {',
@@ -177,7 +177,7 @@ describe('Control structure curly brace presence', () => {
   })
 
   describe('for a default label', () => {
-    it('should not raise a violation when curly braces are absent', () => {
+    it('should not raise a violation when braces are absent', () => {
       const text = source([
         'switch (1) {',
         'default:',
@@ -187,7 +187,7 @@ describe('Control structure curly brace presence', () => {
       expect(text).toNotRaiseViolation()
     })
 
-    it('should not raise a violation when curly braces are present', () => {
+    it('should not raise a violation when braces are present', () => {
       const text = source([
         'switch (1) {',
         'default: {',
