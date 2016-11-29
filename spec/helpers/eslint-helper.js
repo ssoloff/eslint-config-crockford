@@ -8,8 +8,6 @@
 
 'use strict'
 
-const createEngine = require('../support/test-util').createEngine
-
 function containsNoViolations (results) {
   return results.results.every((result) => result.messages.length === 0)
 }
@@ -25,17 +23,11 @@ function formatFailureMessage (condition, results, ruleId) {
   return `Expected ${condition} for ${ruleClause} but results were ${JSON.stringify(results)}.`
 }
 
-function lint (text) {
-  const engine = createEngine()
-  return engine.executeOnText(text)
-}
-
 beforeEach(() => {
   jasmine.addMatchers({
-    toNotRaiseViolation () {
+    toNotReportViolation () {
       return {
-        compare (text) {
-          const results = lint(text)
+        compare (results) {
           return {
             message: formatFailureMessage('no violation', results),
             pass: containsNoViolations(results)
@@ -44,10 +36,9 @@ beforeEach(() => {
       }
     },
 
-    toRaiseViolationForRule () {
+    toReportViolationForRule () {
       return {
-        compare (text, ruleId) {
-          const results = lint(text)
+        compare (results, ruleId) {
           return {
             message: formatFailureMessage('a violation', results, ruleId),
             pass: containsViolationsOnlyForRule(results, ruleId)

@@ -10,15 +10,20 @@
 
 const eslint = require('eslint')
 
+function createEngine () {
+  return new eslint.CLIEngine({
+    configFile: 'lib/eslintrc.json',
+    parserOptions: {
+      ecmaVersion: 8
+    },
+    useEslintrc: false
+  })
+}
+
 module.exports = {
-  createEngine () {
-    return new eslint.CLIEngine({
-      configFile: 'lib/eslintrc.json',
-      parserOptions: {
-        ecmaVersion: 8
-      },
-      useEslintrc: false
-    })
+  linting (text) {
+    const engine = createEngine()
+    return engine.executeOnText(text)
   },
 
   source (lines) {

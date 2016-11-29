@@ -8,26 +8,27 @@
 
 'use strict'
 
+const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
-describe('File structure', () => {
-  it('should raise a violation when the file does not have a trailing newline', () => {
+describe('Linting file structure', () => {
+  it('should report a violation when the file does not have a trailing newline', () => {
     const text = 'var foo = 1;'
-    expect(text).toRaiseViolationForRule('eol-last')
+    expect(linting(text)).toReportViolationForRule('eol-last')
   })
 
-  it('should not raise a violation when the file has a trailing newline', () => {
+  it('should not report a violation when the file has a trailing newline', () => {
     const text = 'var foo = 1;\n'
-    expect(text).toNotRaiseViolation()
+    expect(linting(text)).toNotReportViolation()
   })
 
-  it('should raise a violation when a line has trailing whitespace', () => {
+  it('should report a violation when a line has trailing whitespace', () => {
     const text = source(['var foo = 1; '])
-    expect(text).toRaiseViolationForRule('no-trailing-spaces')
+    expect(linting(text)).toReportViolationForRule('no-trailing-spaces')
   })
 
-  it('should not raise a violation when a line does not have trailing whitespace', () => {
+  it('should not report a violation when a line does not have trailing whitespace', () => {
     const text = source(['var foo = 1;'])
-    expect(text).toNotRaiseViolation()
+    expect(linting(text)).toNotReportViolation()
   })
 })

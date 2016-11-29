@@ -8,10 +8,11 @@
 
 'use strict'
 
+const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
-describe('Compound statement brace style', () => {
-  it('should raise a violation when Stroustrup brace style is used', () => {
+describe('Linting compound statement brace style', () => {
+  it('should report a violation when Stroustrup brace style is used', () => {
     const text = source([
       'if (1) {',
       '    2;',
@@ -20,10 +21,10 @@ describe('Compound statement brace style', () => {
       '    3;',
       '}'
     ])
-    expect(text).toRaiseViolationForRule('brace-style')
+    expect(linting(text)).toReportViolationForRule('brace-style')
   })
 
-  it('should raise a violation when Allman brace style is used', () => {
+  it('should report a violation when Allman brace style is used', () => {
     const text = source([
       'if (1)',
       '{',
@@ -34,10 +35,10 @@ describe('Compound statement brace style', () => {
       '    3;',
       '}'
     ])
-    expect(text).toRaiseViolationForRule('brace-style')
+    expect(linting(text)).toReportViolationForRule('brace-style')
   })
 
-  it('should not raise a violation when one true brace style is used', () => {
+  it('should not report a violation when one true brace style is used', () => {
     const text = source([
       'if (1) {',
       '    2;',
@@ -45,20 +46,20 @@ describe('Compound statement brace style', () => {
       '    3;',
       '}'
     ])
-    expect(text).toNotRaiseViolation()
+    expect(linting(text)).toNotReportViolation()
   })
 
-  it('should raise a violation when one true brace style is used on a single line', () => {
+  it('should report a violation when one true brace style is used on a single line', () => {
     const text = source(['if (1) { 2; } else { 3; }'])
-    expect(text).toRaiseViolationForRule('brace-style')
+    expect(linting(text)).toReportViolationForRule('brace-style')
   })
 
-  it('should not raise a violation when one true brace style is used with empty blocks', () => {
+  it('should not report a violation when one true brace style is used with empty blocks', () => {
     const text = source([
       'if (1) {',
       '} else {',
       '}'
     ])
-    expect(text).toNotRaiseViolation()
+    expect(linting(text)).toNotReportViolation()
   })
 })
