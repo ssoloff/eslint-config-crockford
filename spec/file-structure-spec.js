@@ -8,6 +8,8 @@
 
 'use strict'
 
+const source = require('./support/test-util').source
+
 describe('File structure', () => {
   it('should raise a violation when the file does not have a trailing newline', () => {
     const text = 'var foo = 1;'
@@ -16,6 +18,16 @@ describe('File structure', () => {
 
   it('should not raise a violation when the file has a trailing newline', () => {
     const text = 'var foo = 1;\n'
+    expect(text).toNotRaiseViolation()
+  })
+
+  it('should raise a violation when a line has trailing whitespace', () => {
+    const text = source(['var foo = 1; '])
+    expect(text).toRaiseErrorForRule('no-trailing-spaces')
+  })
+
+  it('should not raise a violation when a line does not have trailing whitespace', () => {
+    const text = source(['var foo = 1;'])
     expect(text).toNotRaiseViolation()
   })
 })

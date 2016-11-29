@@ -1,6 +1,7 @@
 {
   "rules": {
     "curly": 2,
-    "eol-last": 2
+    "eol-last": 2,
+    "no-trailing-spaces": 2
   }
 }
