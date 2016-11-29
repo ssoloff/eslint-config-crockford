@@ -4,7 +4,9 @@
     "brace-style": [2, "1tbs"],
     "eol-last": 2,
     "indent": [2, 4],
+    "no-continue": 2,
     "no-mixed-spaces-and-tabs": 2,
-    "no-trailing-spaces": 2
+    "no-trailing-spaces": 2,
+    "no-with": 2
   }
 }
