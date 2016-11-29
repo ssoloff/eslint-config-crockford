@@ -49,9 +49,7 @@ describe('Compound statement', () => {
   })
 
   it('should raise a violation when one true brace style is used on a single line', () => {
-    const text = source([
-      'if (1) { 2; } else { 3; }'
-    ])
+    const text = source(['if (1) { 2; } else { 3; }'])
     expect(text).toRaiseViolationForRule('brace-style')
   })
 
