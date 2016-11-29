@@ -54,4 +54,13 @@ describe('Compound statement', () => {
     ])
     expect(text).toRaiseViolationForRule('brace-style')
   })
+
+  it('should not raise a violation when one true brace style is used with empty blocks', () => {
+    const text = source([
+      'if (1) {',
+      '} else {',
+      '}'
+    ])
+    expect(text).toNotRaiseViolation()
+  })
 })
