@@ -15,7 +15,7 @@ describe('Control structure curly brace presence', () => {
     it('should raise a violation when curly braces are absent', () => {
       const text = source([
         'if (1)',
-        '  2;'
+        '    2;'
       ])
       expect(text).toRaiseErrorForRule('curly')
     })
@@ -34,9 +34,9 @@ describe('Control structure curly brace presence', () => {
     it('should raise a violation when curly braces are absent', () => {
       const text = source([
         'if (1) {',
-        '  2;',
+        '    2;',
         '} else',
-        '  3;'
+        '    3;'
       ])
       expect(text).toRaiseErrorForRule('curly')
     })
@@ -57,7 +57,7 @@ describe('Control structure curly brace presence', () => {
     it('should raise a violation when curly braces are absent', () => {
       const text = source([
         'for (;;)',
-        '  1;'
+        '    1;'
       ])
       expect(text).toRaiseErrorForRule('curly')
     })
@@ -77,7 +77,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'var p;',
         'for (p in {})',
-        '  1;'
+        '    1;'
       ])
       expect(text).toRaiseErrorForRule('curly')
     })
@@ -98,7 +98,7 @@ describe('Control structure curly brace presence', () => {
       const text = source([
         'var p;',
         'for (p of [])',
-        '  1;'
+        '    1;'
       ])
       expect(text).toRaiseErrorForRule('curly')
     })
@@ -118,7 +118,7 @@ describe('Control structure curly brace presence', () => {
     it('should raise a violation when curly braces are absent', () => {
       const text = source([
         'while (1)',
-        '  2;'
+        '    2;'
       ])
       expect(text).toRaiseErrorForRule('curly')
     })
@@ -137,7 +137,7 @@ describe('Control structure curly brace presence', () => {
     it('should raise a violation when curly braces are absent', () => {
       const text = source([
         'do',
-        '  2;',
+        '    2;',
         'while (1);'
       ])
       expect(text).toRaiseErrorForRule('curly')

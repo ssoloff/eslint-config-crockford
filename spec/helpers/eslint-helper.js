@@ -10,18 +10,11 @@
 
 const createEngine = require('../support/test-util').createEngine
 
-function checkForFatalErrors (results) {
-  const fatal = results.results.some((result) => {
-    return result.messages.some((message) => message.fatal === true)
-  })
-  if (fatal) {
-    throw new Error(`Encountered fatal error in results ${formatResults(results)}.`)
-  }
-}
-
 function containsRuleViolationWithSeverity (results, ruleId, severity) {
-  return results.results.some((result) => {
-    return result.messages.some((message) => message.ruleId === ruleId && message.severity === severity)
+  return (results.results.length > 0) && results.results.every((result) => {
+    return (result.messages.length > 0) && result.messages.every((message) => {
+      return (message.ruleId === ruleId) && (message.severity === severity)
+    })
   })
 }
 
@@ -40,9 +33,7 @@ function formatResults (results) {
 
 function lint (text) {
   const engine = createEngine()
-  const results = engine.executeOnText(text)
-  checkForFatalErrors(results)
-  return results
+  return engine.executeOnText(text)
 }
 
 beforeEach(() => {
