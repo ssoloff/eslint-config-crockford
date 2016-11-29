@@ -30,4 +30,14 @@ describe('File structure', () => {
     const text = source(['var foo = 1;'])
     expect(text).toNotRaiseViolation()
   })
+
+  it('should raise a violation when a line contains both spaces and tabs for indentation', () => {
+    const text = source(['\t    var foo = 1;'])
+    expect(text).toRaiseErrorForRule('no-mixed-spaces-and-tabs')
+  })
+
+  it('should not raise a violation when a line contains only spaces for indentation', () => {
+    const text = source(['        var foo = 1;'])
+    expect(text).toNotRaiseViolation()
+  })
 })
