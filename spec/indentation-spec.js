@@ -16,7 +16,7 @@ describe('Indentation', () => {
     expect(text).toRaiseViolationForRule('no-mixed-spaces-and-tabs')
   })
 
-  it('should not raise a violation only spaces are used for indentation', () => {
+  it('should not raise a violation when only spaces are used for indentation', () => {
     const text = source(['        var foo = 1;'])
     expect(text).toNotRaiseViolation()
   })
