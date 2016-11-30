@@ -7,6 +7,7 @@
     "no-continue": 2,
     "no-mixed-spaces-and-tabs": 2,
     "no-trailing-spaces": 2,
-    "no-with": 2
+    "no-with": 2,
+    "wrap-iife": 2
   }
 }
