@@ -11,7 +11,7 @@
 const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
-describe('Linting identifier names', () => {
+describe('Linting identifiers', () => {
   it('should report a violation when a constructor name is not capitalized', () => {
     const text = source([
       'var o;',
