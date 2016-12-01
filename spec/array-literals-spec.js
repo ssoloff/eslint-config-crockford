@@ -21,4 +21,14 @@ describe('Linting array literals', () => {
     ])
     expect(linting(text)).toReportViolationForRule('comma-dangle')
   })
+
+  it('should report a violation when a comma does not occur after an element', () => {
+    const text = source([
+      'var a = [',
+      '    1',
+      '    , 2',
+      '];'
+    ])
+    expect(linting(text)).toReportViolationForRule('comma-style')
+  })
 })

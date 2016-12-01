@@ -21,4 +21,14 @@ describe('Linting object literals', () => {
     ])
     expect(linting(text)).toReportViolationForRule('comma-dangle')
   })
+
+  it('should report a violation when a comma does not occur after a property', () => {
+    const text = source([
+      'var o = {',
+      '    a: 1',
+      '    , b: 2',
+      '};'
+    ])
+    expect(linting(text)).toReportViolationForRule('comma-style')
+  })
 })

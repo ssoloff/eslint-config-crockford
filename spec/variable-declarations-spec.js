@@ -42,4 +42,12 @@ describe('Linting variable declarations', () => {
     ])
     expect(linting(text)).toNotReportViolation()
   })
+
+  it('should report a violation when a comma does not occur after a variable declaration', () => {
+    const text = source([
+      'var foo = 1',
+      '    , bar = 2;'
+    ])
+    expect(linting(text)).toReportViolationForRule('comma-style')
+  })
 })
