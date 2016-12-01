@@ -7,6 +7,7 @@
     "brace-style": [2, "1tbs"],
     "eol-last": 2,
     "indent": [2, 4],
+    "key-spacing": 2,
     "new-cap": 2,
     "no-continue": 2,
     "no-mixed-spaces-and-tabs": 2,

@@ -31,4 +31,22 @@ describe('Linting object literals', () => {
     ])
     expect(linting(text)).toReportViolationForRule('comma-style')
   })
+
+  it('should report a violation when a space is present before the colon between the key and value', () => {
+    const text = source([
+      'var o = {',
+      '    a : 1',
+      '};'
+    ])
+    expect(linting(text)).toReportViolationForRule('key-spacing')
+  })
+
+  it('should report a violation when a space is not present after the colon between the key and value', () => {
+    const text = source([
+      'var o = {',
+      '    a:1',
+      '};'
+    ])
+    expect(linting(text)).toReportViolationForRule('key-spacing')
+  })
 })
