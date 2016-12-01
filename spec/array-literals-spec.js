@@ -31,4 +31,14 @@ describe('Linting array literals', () => {
     ])
     expect(linting(text)).toReportViolationForRule('comma-style')
   })
+
+  it('should report a violation when a space is present after the opening bracket', () => {
+    const text = source(['var a = [ 1, 2];'])
+    expect(linting(text)).toReportViolationForRule('array-bracket-spacing')
+  })
+
+  it('should report a violation when a space is present before the closing bracket', () => {
+    const text = source(['var a = [1, 2 ];'])
+    expect(linting(text)).toReportViolationForRule('array-bracket-spacing')
+  })
 })
