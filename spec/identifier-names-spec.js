@@ -33,4 +33,14 @@ describe('Linting identifier names', () => {
     ])
     expect(linting(text)).toNotReportViolation()
   })
+
+  it('should report a violation when an identifier contains a leading underscore', () => {
+    const text = source(['var _foo = 1;'])
+    expect(linting(text)).toReportViolationForRule('no-underscore-dangle')
+  })
+
+  it('should report a violation when an identifier contains a trailing underscore', () => {
+    const text = source(['var foo_ = 1;'])
+    expect(linting(text)).toReportViolationForRule('no-underscore-dangle')
+  })
 })
