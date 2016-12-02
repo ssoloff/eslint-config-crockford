@@ -21,4 +21,14 @@ describe('Linting binary operators', () => {
     const text = source(['var a = 1 +2;'])
     expect(linting(text)).toReportViolationForRule('space-infix-ops')
   })
+
+  it('should report a violation when a space appears before the sequence operator', () => {
+    const text = source(['1 , 2;'])
+    expect(linting(text)).toReportViolationForRule('comma-spacing')
+  })
+
+  it('should report a violation when a space does not appear after the sequence operator', () => {
+    const text = source(['1,2;'])
+    expect(linting(text)).toReportViolationForRule('comma-spacing')
+  })
 })
