@@ -14,6 +14,7 @@
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 2,
     "no-with": 2,
+    "space-infix-ops": 2,
     "vars-on-top": 2,
     "wrap-iife": 2
   }
