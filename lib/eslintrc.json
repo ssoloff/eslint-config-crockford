@@ -6,6 +6,7 @@
     "comma-style": 2,
     "curly": 2,
     "brace-style": 2,
+    "dot-notation": 2,
     "eol-last": 2,
     "indent": [2, 4],
     "key-spacing": 2,

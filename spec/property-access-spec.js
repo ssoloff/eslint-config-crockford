@@ -12,12 +12,12 @@ const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
 describe('Linting property access', () => {
-  it('should not report a violation when using square-bracket notation', () => {
+  it('should report a violation when using square-bracket notation', () => {
     const text = source([
       'var foo = {};',
       'foo["bar"];'
     ])
-    expect(linting(text)).toNotReportViolation()
+    expect(linting(text)).toReportViolationForRule('dot-notation')
   })
 
   it('should not report a violation when using dot notation', () => {
