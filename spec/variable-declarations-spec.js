@@ -32,10 +32,21 @@ describe('Linting variable declarations', () => {
     expect(linting(text)).toNotReportViolation()
   })
 
-  it('should not report a violation when multiple var declarations are used in same scope', () => {
+  it('should report a violation when multiple var declarations are used in same scope', () => {
     const text = source([
       'var foo = 1;',
       'var bar = 2;',
+      'while (foo) {',
+      '    bar;',
+      '}'
+    ])
+    expect(linting(text)).toReportViolationForRule('one-var')
+  })
+
+  it('should not report a violation when a single var declaration is used', () => {
+    const text = source([
+      'var foo = 1,',
+      '    bar = 2;',
       'while (foo) {',
       '    bar;',
       '}'
