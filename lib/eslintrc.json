@@ -12,6 +12,7 @@
     "keyword-spacing": 2,
     "new-cap": 2,
     "no-continue": 2,
+    "no-empty": [2, {"allowEmptyCatch": true}],
     "no-mixed-spaces-and-tabs": 2,
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 2,

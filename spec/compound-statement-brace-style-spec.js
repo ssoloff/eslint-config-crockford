@@ -53,13 +53,4 @@ describe('Linting compound statement brace style', () => {
     const text = source(['if (1) { 2; } else { 3; }'])
     expect(linting(text)).toReportViolationForRule('brace-style')
   })
-
-  it('should not report a violation when one true brace style is used with empty blocks', () => {
-    const text = source([
-      'if (1) {',
-      '} else {',
-      '}'
-    ])
-    expect(linting(text)).toNotReportViolation()
-  })
 })
