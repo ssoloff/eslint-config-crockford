@@ -14,6 +14,7 @@
     "no-continue": 2,
     "no-empty": [2, {"allowEmptyCatch": true}],
     "no-mixed-spaces-and-tabs": 2,
+    "no-multi-str": 2,
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 2,
     "no-with": 2,
