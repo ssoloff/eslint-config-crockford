@@ -51,4 +51,24 @@ describe('Linting functions', () => {
       expect(linting(text)).toNotReportViolation()
     })
   })
+
+  describe('for function arguments', () => {
+    it('should report a violation when no space appears between arguments', () => {
+      const text = source([
+        'function foo(a,b) {',
+        '    1;',
+        '}'
+      ])
+      expect(linting(text)).toReportViolationForRule('comma-spacing')
+    })
+
+    it('should not report a violation when space appears between arguments', () => {
+      const text = source([
+        'function foo(a, b) {',
+        '    1;',
+        '}'
+      ])
+      expect(linting(text)).toNotReportViolation()
+    })
+  })
 })
