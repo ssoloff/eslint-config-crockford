@@ -30,6 +30,16 @@ describe('Linting functions', () => {
       ])
       expect(linting(text)).toNotReportViolation()
     })
+
+    it('should report a violation when a function is used before it is defined', () => {
+      const text = source([
+        'foo();',
+        'function foo() {',
+        '    1;',
+        '}'
+      ])
+      expect(linting(text)).toReportViolationForRule('no-use-before-define')
+    })
   })
 
   describe('for anonymous functions', () => {

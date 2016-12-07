@@ -61,4 +61,14 @@ describe('Linting variable declarations', () => {
     ])
     expect(linting(text)).toReportViolationForRule('comma-style')
   })
+
+  it('should report a violation when a variable is used before it is defined', () => {
+    const text = source([
+      'function g() {',
+      '    return foo;',
+      '}',
+      'var foo = 1;'
+    ])
+    expect(linting(text)).toReportViolationForRules(['no-use-before-define', 'vars-on-top'])
+  })
 })

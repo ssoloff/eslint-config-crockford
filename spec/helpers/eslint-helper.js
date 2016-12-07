@@ -8,18 +8,27 @@
 
 'use strict'
 
+const _ = require('lodash')
+
 function containsNoViolations (results) {
   return results.results.every((result) => result.messages.length === 0)
 }
 
-function containsViolationsOnlyForRule (results, ruleId) {
-  return (results.results.length > 0) && results.results.every((result) => {
-    return (result.messages.length > 0) && result.messages.every((message) => message.ruleId === ruleId)
+function containsViolationsOnlyForRules (results, ruleIds) {
+  const expectedRuleIds = new Set(ruleIds)
+
+  const actualRuleIds = new Set()
+  results.results.forEach((result) => {
+    result.messages.forEach((message) => {
+      actualRuleIds.add(message.ruleId)
+    })
   })
+
+  return _.isEqual(expectedRuleIds, actualRuleIds)
 }
 
-function formatFailureMessage (condition, results, ruleId) {
-  const ruleClause = ruleId ? `rule '${ruleId}'` : 'any rule'
+function formatFailureMessage (condition, results, ruleIds) {
+  const ruleClause = ruleIds ? `rule${ruleIds.length === 1 ? '' : 's'} '${ruleIds.join('\', \'')}'` : 'any rule'
   return `Expected ${condition} for ${ruleClause} but results were ${JSON.stringify(results)}.`
 }
 
@@ -40,8 +49,19 @@ beforeEach(() => {
       return {
         compare (results, ruleId) {
           return {
-            message: formatFailureMessage('a violation', results, ruleId),
-            pass: containsViolationsOnlyForRule(results, ruleId)
+            message: formatFailureMessage('a violation', results, [ruleId]),
+            pass: containsViolationsOnlyForRules(results, [ruleId])
+          }
+        }
+      }
+    },
+
+    toReportViolationForRules () {
+      return {
+        compare (results, ruleIds) {
+          return {
+            message: formatFailureMessage('a violation', results, ruleIds),
+            pass: containsViolationsOnlyForRules(results, ruleIds)
           }
         }
       }

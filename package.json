@@ -38,6 +38,7 @@
     "jasmine": "~2.5.2",
     "jasmine-expect": "~3.0.1",
     "jsonlint": "~1.6.2",
+    "lodash": "~4.17.2",
     "package-json-validator": "~0.6.1"
   },
   "scripts": {
