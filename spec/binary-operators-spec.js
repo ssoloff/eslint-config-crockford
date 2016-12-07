@@ -31,4 +31,14 @@ describe('Linting binary operators', () => {
     const text = source(['1,2;'])
     expect(linting(text)).toReportViolationForRule('comma-spacing')
   })
+
+  it('should report a violation when the coercive equality operator is used', () => {
+    const text = source(['1 == 1;'])
+    expect(linting(text)).toReportViolationForRule('eqeqeq')
+  })
+
+  it('should report a violation when the coercive inequality operator is used', () => {
+    const text = source(['1 != 2;'])
+    expect(linting(text)).toReportViolationForRule('eqeqeq')
+  })
 })
