@@ -12,9 +12,17 @@ const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
 describe('Linting built-in objects', () => {
-  it('should report a violation when the eval() function is used', () => {
-    const text = source(['eval("1 + 1");'])
+  it('should report a violation when the eval() function is used explicitly', () => {
+    const text = source(['eval("1 + 1;");'])
     expect(linting(text)).toReportViolationForRule('no-eval')
+  })
+
+  it('should report a violation when the eval() function is used implicitly', () => {
+    const text = source([
+      '/* eslint-env browser */',
+      'setTimeout("1 + 1;", 1000);'
+    ])
+    expect(linting(text)).toReportViolationForRule('no-implied-eval')
   })
 
   it('should report a violation when the Function constructor is used', () => {
