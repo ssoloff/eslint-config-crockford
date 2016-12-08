@@ -16,4 +16,9 @@ describe('Linting built-in objects', () => {
     const text = source(['eval("1 + 1");'])
     expect(linting(text)).toReportViolationForRule('no-eval')
   })
+
+  it('should report a violation when the Function constructor is used', () => {
+    const text = source(['var foo = new Function("a", "b", "return a + b;");'])
+    expect(linting(text)).toReportViolationForRule('no-new-func')
+  })
 })
