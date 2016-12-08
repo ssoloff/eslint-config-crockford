@@ -25,7 +25,7 @@ describe('Linting binary operators', () => {
   it('should report a violation when a space appears before the sequence operator', () => {
     const text = source([
       'var i, j;',
-      'for (i = 0 , j = 0; i < 10; ++i, ++j) {',
+      'for (i = 0 , j = 0; i < 10; i += 1, j += 1) {',
       '    1;',
       '}'
     ])
@@ -35,7 +35,7 @@ describe('Linting binary operators', () => {
   it('should report a violation when a space does not appear after the sequence operator', () => {
     const text = source([
       'var i, j;',
-      'for (i = 0,j = 0; i < 10; ++i, ++j) {',
+      'for (i = 0,j = 0; i < 10; i += 1, j += 1) {',
       '    1;',
       '}'
     ])

@@ -12,34 +12,18 @@ const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
 describe('Linting unary operators', () => {
-  it('should report a violation when a space appears after a prefix nonword operator', () => {
+  it('should report a violation when a space appears after a nonword operator', () => {
     const text = source([
       'var a = 1;',
-      '++ a;'
+      '+ a;'
     ])
     expect(linting(text)).toReportViolationForRule('space-unary-ops')
   })
 
-  it('should not report a violation when no space appears after a prefix nonword operator', () => {
+  it('should not report a violation when no space appears after a nonword operator', () => {
     const text = source([
       'var a = 1;',
-      '++a;'
-    ])
-    expect(linting(text)).toNotReportViolation()
-  })
-
-  it('should report a violation when a space appears before a postfix nonword operator', () => {
-    const text = source([
-      'var a = 1;',
-      'a ++;'
-    ])
-    expect(linting(text)).toReportViolationForRule('space-unary-ops')
-  })
-
-  it('should not report a violation when no space appears before a postfix nonword operator', () => {
-    const text = source([
-      'var a = 1;',
-      'a++;'
+      '+a;'
     ])
     expect(linting(text)).toNotReportViolation()
   })
@@ -52,5 +36,21 @@ describe('Linting unary operators', () => {
   it('should not report a violation when a space appears after a word operator', () => {
     const text = source(['typeof {};'])
     expect(linting(text)).toNotReportViolation()
+  })
+
+  it('should report a violation when the prefix increment operator is used', () => {
+    const text = source([
+      'var a = 1;',
+      '++a;'
+    ])
+    expect(linting(text)).toReportViolationForRule('no-plusplus')
+  })
+
+  it('should report a violation when the postfix increment operator is used', () => {
+    const text = source([
+      'var a = 1;',
+      'a++;'
+    ])
+    expect(linting(text)).toReportViolationForRule('no-plusplus')
   })
 })
