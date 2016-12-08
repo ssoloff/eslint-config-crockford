@@ -15,6 +15,7 @@
     "new-cap": 2,
     "no-continue": 2,
     "no-empty": [2, {"allowEmptyCatch": true}],
+    "no-eval": 2,
     "no-mixed-spaces-and-tabs": 2,
     "no-multi-str": 2,
     "no-plusplus": 2,
