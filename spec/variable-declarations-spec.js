@@ -64,12 +64,13 @@ describe('Linting variable declarations', () => {
 
   it('should report a violation when a variable is used before it is defined', () => {
     const text = source([
+      '/* eslint vars-on-top: 0 */',
       'function g() {',
       '    return foo;',
       '}',
       'var foo = 1;'
     ])
-    expect(linting(text)).toReportViolationForRules(['no-use-before-define', 'vars-on-top'])
+    expect(linting(text)).toReportViolationForRule('no-use-before-define')
   })
 
   it('should report a violation when an undeclared variable is used', () => {
