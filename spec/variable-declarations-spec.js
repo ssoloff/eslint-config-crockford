@@ -71,4 +71,9 @@ describe('Linting variable declarations', () => {
     ])
     expect(linting(text)).toReportViolationForRules(['no-use-before-define', 'vars-on-top'])
   })
+
+  it('should report a violation when an undeclared variable is used', () => {
+    const text = source(['foo = 1;'])
+    expect(linting(text)).toReportViolationForRule('no-undef')
+  })
 })

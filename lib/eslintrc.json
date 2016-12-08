@@ -20,6 +20,7 @@
     "no-plusplus": 2,
     "no-sequences": 2,
     "no-trailing-spaces": 2,
+    "no-undef": 2,
     "no-underscore-dangle": 2,
     "no-use-before-define": 2,
     "no-with": 2,
