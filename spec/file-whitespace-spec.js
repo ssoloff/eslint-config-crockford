@@ -11,7 +11,7 @@
 const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
-describe('Linting file structure', () => {
+describe('Linting file whitespace', () => {
   it('should report a violation when the file does not have a trailing newline', () => {
     const text = 'var foo = 1;'
     expect(linting(text)).toReportViolationForRule('eol-last')
