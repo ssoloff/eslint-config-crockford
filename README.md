@@ -1,6 +1,7 @@
 # Crockford - ESLint Shareable Config
 
-[![MIT License][license-image]][license-link]  
+[![MIT License][license-image]][license-link]
+[![NPM][npm-image]][npm-link]  
 [![Build Status][travis-image]][travis-link]
 [![Dev Dependency Status][david-dev-image]][david-dev-link]
 
@@ -36,5 +37,7 @@ Licensed under the terms of the [MIT License][license-link].
 [david-dev-link]: https://david-dm.org/ssoloff/eslint-config-crockford#info=devDependencies
 [license-image]: https://img.shields.io/:license-MIT-blue.svg?style=flat
 [license-link]: https://opensource.org/licenses/MIT
+[npm-image]: https://img.shields.io/npm/v/eslint-config-crockford.svg
+[npm-link]: https://npmjs.org/package/eslint-config-crockford
 [travis-image]: https://travis-ci.org/ssoloff/eslint-config-crockford.svg?branch=master
 [travis-link]: https://travis-ci.org/ssoloff/eslint-config-crockford
