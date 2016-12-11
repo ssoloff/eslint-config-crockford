@@ -3,8 +3,16 @@
   "version": "0.1.0",
   "description": "ESLint shareable config for Crockford style",
   "keywords": [
+    "code checker",
+    "code linter",
+    "code standards",
+    "code style",
+    "crockford",
     "eslint",
-    "eslintconfig"
+    "eslintconfig",
+    "lint",
+    "style checker",
+    "style linter"
   ],
   "license": "MIT",
   "homepage": "https://github.com/ssoloff/eslint-config-crockford",
