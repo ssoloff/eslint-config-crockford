@@ -37,7 +37,7 @@
   "main": "lib/index.js",
   "dependencies": {},
   "peerDependencies": {
-    "eslint": ">= 3.11.0"
+    "eslint": ">= 3.0.0"
   },
   "devDependencies": {
     "eslint": "~3.11.0",
