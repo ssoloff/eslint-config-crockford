@@ -57,6 +57,7 @@
     "lint:js": "eslint .",
     "lint:json": "node build/lint-json.js",
     "lint:package": "pjv -rw",
-    "test": "jasmine"
+    "test": "jasmine",
+    "version": "npm run build"
   }
 }
