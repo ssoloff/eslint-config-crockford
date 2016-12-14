@@ -1,8 +1,6 @@
 {
   "plugins": [
-    "node",
-    "promise",
-    "standard"
+    "node"
   ],
   "extends": [
     "standard",
