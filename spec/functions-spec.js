@@ -47,7 +47,7 @@ describe('Linting functions', () => {
       const text = source([
         'var foo = function(a) {',
         '    1;',
-        '}'
+        '};'
       ])
       expect(linting(text)).toReportViolationForRule('space-before-function-paren')
     })
@@ -56,7 +56,7 @@ describe('Linting functions', () => {
       const text = source([
         'var foo = function (a) {',
         '    1;',
-        '}'
+        '};'
       ])
       expect(linting(text)).toNotReportViolation()
     })
