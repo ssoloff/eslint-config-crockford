@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Steven Soloff
+ * Copyright (c) 2016-2017 Steven Soloff
  *
  * This is free software: you can redistribute it and/or modify it under the
  * terms of the MIT License (https://opensource.org/licenses/MIT).
