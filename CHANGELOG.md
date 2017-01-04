@@ -5,13 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.0.0] - 2017-01-04
+- First official release.
+
 ## [0.2.0] - 2016-12-31
 ### Added
 - Enable `semi` rule.
 
 ## 0.1.0 - 2016-12-13
-### Added
 - Initial release.
 
-[Unreleased]: https://github.com/ssoloff/eslint-config-crockford/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/ssoloff/eslint-config-crockford/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/ssoloff/eslint-config-crockford/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/ssoloff/eslint-config-crockford/compare/v0.1.0...v0.2.0
