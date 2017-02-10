@@ -34,7 +34,7 @@ See the [ESLint documentation](http://eslint.org/docs/developer-guide/shareable-
 Licensed under the terms of the [MIT License][license-link].
 
 [david-dev-image]: https://david-dm.org/ssoloff/eslint-config-crockford/dev-status.svg
-[david-dev-link]: https://david-dm.org/ssoloff/eslint-config-crockford#info=devDependencies
+[david-dev-link]: https://david-dm.org/ssoloff/eslint-config-crockford?type=dev
 [license-image]: https://img.shields.io/:license-MIT-blue.svg?style=flat
 [license-link]: https://opensource.org/licenses/MIT
 [npm-image]: https://img.shields.io/npm/v/eslint-config-crockford.svg
