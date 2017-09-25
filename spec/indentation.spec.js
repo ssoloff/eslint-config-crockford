@@ -12,16 +12,6 @@ const linting = require('./support/test-util').linting
 const source = require('./support/test-util').source
 
 describe('Linting indentation', () => {
-  it('should report a violation when both spaces and tabs are used', () => {
-    const text = source(['\t    var foo = 1;'])
-    expect(linting(text)).toReportViolationForRule('no-mixed-spaces-and-tabs')
-  })
-
-  it('should not report a violation when only spaces are used', () => {
-    const text = source(['        var foo = 1;'])
-    expect(linting(text)).toNotReportViolation()
-  })
-
   it('should report a violation when 2 spaces are used', () => {
     const text = source([
       'if (1) {',
@@ -38,6 +28,17 @@ describe('Linting indentation', () => {
       '}'
     ])
     expect(linting(text)).toReportViolationForRule('indent')
+  })
+
+  it('should report a violation when both spaces and tabs are used', () => {
+    const text = source([
+      'if (1) {',
+      '    if (1) {',
+      '\t    2;',
+      '    }',
+      '}'
+    ])
+    expect(linting(text)).toReportViolationForRule('no-mixed-spaces-and-tabs')
   })
 
   it('should not report a violation when 4 spaces are used', () => {
