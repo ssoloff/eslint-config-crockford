@@ -120,7 +120,7 @@
     },
     "builtin-modules": {
       "version": "1.1.1",
-      "from": "builtin-modules@>=1.0.0 <2.0.0",
+      "from": "builtin-modules@>=1.1.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/builtin-modules/-/builtin-modules-1.1.1.tgz",
       "dev": true
     },
@@ -348,7 +348,7 @@
     },
     "eslint-plugin-import": {
       "version": "2.7.0",
-      "from": "eslint-plugin-import@latest",
+      "from": "eslint-plugin-import@2.7.0",
       "resolved": "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.7.0.tgz",
       "dev": true,
       "dependencies": {
@@ -364,7 +364,15 @@
       "version": "5.1.1",
       "from": "eslint-plugin-node@5.1.1",
       "resolved": "https://registry.npmjs.org/eslint-plugin-node/-/eslint-plugin-node-5.1.1.tgz",
-      "dev": true
+      "dev": true,
+      "dependencies": {
+        "semver": {
+          "version": "5.3.0",
+          "from": "semver@5.3.0",
+          "resolved": "https://registry.npmjs.org/semver/-/semver-5.3.0.tgz",
+          "dev": true
+        }
+      }
     },
     "eslint-plugin-promise": {
       "version": "3.5.0",
@@ -505,9 +513,9 @@
       "dev": true
     },
     "glob": {
-      "version": "7.1.1",
-      "from": "glob@7.1.1",
-      "resolved": "https://registry.npmjs.org/glob/-/glob-7.1.1.tgz",
+      "version": "7.1.2",
+      "from": "glob@7.1.2",
+      "resolved": "https://registry.npmjs.org/glob/-/glob-7.1.2.tgz",
       "dev": true
     },
     "globals": {
@@ -697,9 +705,9 @@
       "dev": true
     },
     "jasmine-expect": {
-      "version": "3.7.0",
-      "from": "jasmine-expect@3.7.0",
-      "resolved": "https://registry.npmjs.org/jasmine-expect/-/jasmine-expect-3.7.0.tgz",
+      "version": "3.7.1",
+      "from": "jasmine-expect@3.7.1",
+      "resolved": "https://registry.npmjs.org/jasmine-expect/-/jasmine-expect-3.7.1.tgz",
       "dev": true
     },
     "js-tokens": {
@@ -822,7 +830,7 @@
     },
     "minimatch": {
       "version": "3.0.4",
-      "from": "minimatch@>=3.0.2 <4.0.0",
+      "from": "minimatch@>=3.0.4 <4.0.0",
       "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz",
       "dev": true
     },
@@ -983,9 +991,9 @@
       "dev": true
     },
     "package-json-validator": {
-      "version": "0.6.1",
-      "from": "package-json-validator@0.6.1",
-      "resolved": "https://registry.npmjs.org/package-json-validator/-/package-json-validator-0.6.1.tgz",
+      "version": "0.6.2",
+      "from": "package-json-validator@0.6.2",
+      "resolved": "https://registry.npmjs.org/package-json-validator/-/package-json-validator-0.6.2.tgz",
       "dev": true
     },
     "parse-json": {
@@ -1177,9 +1185,9 @@
       "dev": true
     },
     "semver": {
-      "version": "5.3.0",
-      "from": "semver@5.3.0",
-      "resolved": "https://registry.npmjs.org/semver/-/semver-5.3.0.tgz",
+      "version": "5.4.1",
+      "from": "semver@>=2.0.0 <3.0.0||>=3.0.0 <4.0.0||>=4.0.0 <5.0.0||>=5.0.0 <6.0.0",
+      "resolved": "https://registry.npmjs.org/semver/-/semver-5.4.1.tgz",
       "dev": true
     },
     "shebang-command": {

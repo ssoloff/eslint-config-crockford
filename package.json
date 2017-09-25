@@ -47,12 +47,12 @@
     "eslint-plugin-node": "5.1.1",
     "eslint-plugin-promise": "3.5.0",
     "eslint-plugin-standard": "3.0.1",
-    "glob": "7.1.1",
+    "glob": "7.1.2",
     "jasmine": "2.8.0",
-    "jasmine-expect": "3.7.0",
+    "jasmine-expect": "3.7.1",
     "jsonlint": "1.6.2",
     "npm-run-all": "4.1.1",
-    "package-json-validator": "0.6.1"
+    "package-json-validator": "0.6.2"
   },
   "scripts": {
     "build": "npm run lint && npm run test",
