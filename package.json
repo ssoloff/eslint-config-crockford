@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-crockford",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "ESLint shareable config for Crockford style",
   "keywords": [
     "code checker",
